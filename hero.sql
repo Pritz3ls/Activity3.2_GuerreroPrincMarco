@@ -164,7 +164,6 @@ ADD COLUMN item_price DECIMAL(10, 2);
 UPDATE public.hero
 SET is_active = false
 WHERE hero_id = 1;
-
 -- Delete the item associated with the hero that has the Id of 1
 DELETE FROM public.heroitem
 WHERE hero_id = 1;
