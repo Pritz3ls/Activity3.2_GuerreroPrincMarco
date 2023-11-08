@@ -156,31 +156,31 @@ VALUES
     (9, 9, 109),  -- Leomord has Blade Armor
     (10, 10, 110);  -- Chou has Feather of Heaven
 
--- add column price
+-- Add a column for price
 ALTER TABLE public.item
 ADD COLUMN item_price DECIMAL(10, 2);
 
--- Update hero 1 to inactive
+-- Update hero with the Id of 1 to inactive
 UPDATE public.hero
 SET is_active = false
 WHERE hero_id = 1;
 
--- Delete the item associated with hero 1
+-- Delete the item associated with the hero that has the Id of 1
 DELETE FROM public.heroitem
 WHERE hero_id = 1;
 
---Select Active Players
+-- Select all active players
 SELECT p.player_name, h.hero_name
 FROM public.player p
 INNER JOIN public.hero h ON p.hero_id = h.hero_id
 WHERE h.is_active = true;
 
---Select heroes archer
+-- Select heroes that are archers from class
 SELECT class_name
 FROM public.class
 WHERE class_name LIKE '%Archers%'
 
---Select average player level per class 
+-- Select the average player level per class 
 SELECT c.class_name, AVG(p.player_level) AS average_level
 FROM public.class c
 LEFT JOIN public.hero h ON c.class_id = h.class_id
