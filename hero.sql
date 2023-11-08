@@ -1,4 +1,4 @@
---Select average player level per class 
+-- Select the average player level per class 
 SELECT c.class_name, AVG(p.player_level) AS average_level
 FROM public.class c
 LEFT JOIN public.hero h ON c.class_id = h.class_id
